@@ -1,0 +1,45 @@
+{
+  "FunctionName": "< A Valid Lambda Function >",
+  "Role": "< Lambda function Role ARN >",
+  "Details": "< Lambda Details >",
+  "Timeout": 300,
+  "MemorySize": 128,
+  "Runtime": "python3.8",
+  "Publish": true,
+  "Layers": [
+    "<Layer ARN >"
+  ],
+  "Variables": {
+      "host": "RDS",
+      "username": "username",
+      "password": "password"
+  },
+  "VpcConfig": {
+    "SubnetIds": [
+      "subnet-0fcb248c6d38dc6a0",
+      "subnet-08a2e444b10b59a5f"
+    ],
+    "SecurityGroupIds": [
+      "sg-05c0a1ae03f7b37b0",
+      "sg-0e3af7b80debb7044"
+    ]
+  },
+  "Notification": {
+    "BucketName": "< Bucket Name >",
+    "Action": {
+      "Events": [
+        "s3:ObjectCreated:*"
+      ],
+      "Filter": {
+        "Key": {
+          "FilterRules": [
+            {
+              "Name": "suffix",
+              "Value": ".jpg"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
