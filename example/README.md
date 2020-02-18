@@ -205,3 +205,27 @@ function.json file has all information of a lambda function setting details.Such
 }
 
 ```
+
+## Testing 
+
+1.  ###### AWS CLI Method
+    - You should have install AWS CLI
+    - Go to example directory and change necessary information of function.json file
+    - Now make a zip file of the lambda_function.py file 
+    - Upload zip file and function.json file into your newly created s3 bucket by below command 
+    - aws s3 sync . s3://sol-lambda-deploy --exclude "*.py"
+    - [More details AWS S3 CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html)
+    
+2. ###### Beanstalkapp Method
+    - Go to beanstalk website. [visit](https://beanstalkapp.com)
+    - Go to your repository and click on development option. Give environment name and select your branch name.
+     Select manual or automatic option. If you want to deploy the codebase on git push. You need to select automatic option. 
+    ![Add a environment and select branch](../assets/bean_01.png)
+    - Now select amazon s3 server
+    ![amazon s3](../assets/bean_02.png)
+    - Now give name in the general settings and select your s3 bucket region 
+      and set your access key and secret key and bucket name.
+    ![Setup amazon s3 access information](../assets/bean_03.png)
+    - Save now and finish. Now you are able to push your codebase directly amazon s3 bucket. 
+    [N.B. Codebase should in zip file]
+    
