@@ -176,12 +176,12 @@ function.json file has all information of a lambda function setting details.Such
   },
   "VpcConfig": {
     "SubnetIds": [
-      "subnet-0fcb248c6d38dc6a0",
-      "subnet-08a2e444b10b59a5f"
+      "subnet-xxxxxxxxxx",
+      "subnet-xxxxxxxxxx"
     ],
     "SecurityGroupIds": [
-      "sg-05c0a1ae03f7b37b0",
-      "sg-0e3af7b80debb7044"
+      "sg-xxxxxxxxxx",
+      "sg-xxxxxxxxxx"
     ]
   },
   "Notification": {
