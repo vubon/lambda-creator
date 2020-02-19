@@ -215,6 +215,37 @@ function.json file has all information of a lambda function setting details.Such
     - Upload zip file and function.json file into your newly created s3 bucket by below command 
     - aws s3 sync . s3://sol-lambda-deploy --exclude "*.py"
     - [More details AWS S3 CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html)
+
+2. ###### Github Method (Using action)
+     - Create Github repository and Sync to your local Git
+     - In your codebase you need to create `.github` directory and inside `workflows` another directory and create `main.yml `file 
+     - Insert below YAML file into `main.yml`
+       ```yaml
+            name: Upload Codebase to S3
+            on:
+              push:
+                branches:
+                - master # you code change branch name if you want to trigger the action
+            jobs:
+              deploy:
+                runs-on: ubuntu-latest
+                steps:
+                - uses: actions/checkout@master
+                - uses: jakejarvis/s3-sync-action@master
+                  with:
+                    args: --exclude '.git/*' --exclude '.github/*' --exclude '*.gitignore'
+                  env:
+                    AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+                    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    AWS_REGION: 'us-west-1'   # optional: defaults to us-east-1
+                    SOURCE_DIR: 'example'     # optional: defaults to entire repository
+        
+        ```
+     - Go to your github repo settings and add secrets like below screenshot
+     ![Github secrets](../assets/github.png)
+     - [More details about action](https://github.com/features/actions)
+        
     
 2. ###### Beanstalkapp Method
     - Go to beanstalk website. [visit](https://beanstalkapp.com)
