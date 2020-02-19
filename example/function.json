@@ -1,5 +1,5 @@
 {
-  "FunctionName": "HelloWorld2",
+  "FunctionName": "HelloWorld23",
   "Role": "arn:aws:iam::678070447710:role/lambda-function-role",
   "Details": "Hello World 2",
   "Timeout": 300,
