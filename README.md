@@ -54,3 +54,6 @@ The event should be look like below image
 
 4. Finished. 
 
+
+### Lambda Creator Diagram
+![Design](./assets/Lambda_Creator.jpeg)

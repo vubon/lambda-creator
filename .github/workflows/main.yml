@@ -2,7 +2,7 @@ name: Upload Codebase to S3
 on:
   push:
     branches:
-    - master
+    - demo
 jobs:
   deploy:
     runs-on: ubuntu-latest
