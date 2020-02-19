@@ -1,21 +1,31 @@
 {
-  "FunctionName": "HelloWorld2",
-  "Role": "arn:aws:iam::678070447710:role/lambda-function-role",
-  "Details": "Hello World 2",
+  "FunctionName": "< A Valid Lambda Function >",
+  "Role": "< Lambda function Role ARN >",
+  "Details": "< Lambda Details >",
   "Timeout": 300,
   "MemorySize": 128,
   "Runtime": "python3.8",
   "Publish": true,
   "Layers": [
-    "arn:aws:lambda:us-east-1:678070447710:layer:psycopg2-binary:1"
+    "<Layer ARN >"
   ],
   "Variables": {
       "host": "RDS",
       "username": "username",
       "password": "password"
   },
+  "VpcConfig": {
+    "SubnetIds": [
+      "subnet-xxxxxxxxxxx",
+      "subnet-xxxxxxxxxxx"
+    ],
+    "SecurityGroupIds": [
+      "sg-xxxxxxxxxx",
+      "sg-xxxxxxxxxx"
+    ]
+  },
   "Notification": {
-    "BucketName": "test-vubon",
+    "BucketName": "< Bucket Name >",
     "Action": {
       "Events": [
         "s3:ObjectCreated:*"
